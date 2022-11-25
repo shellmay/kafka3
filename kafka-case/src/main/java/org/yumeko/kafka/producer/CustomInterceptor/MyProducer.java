@@ -35,7 +35,9 @@ public class MyProducer {
         //设置该属性为⼀个⼤于1的值，将在消息发送失败的时候重新发送消息。该重试与客户端收到异常重新发送并⽆⼆⾄。允许重试但是
         //不设置 max.in.flight.requests.per.connection 为1，存在消息乱序的可能，因为如果两个批次发送到同⼀个分区，第⼀
         //个失败了重试，第⼆个成功了，则第⼀个消息批在第⼆个消息批后。int类型的值，默认：0，可选值：[0,...,2147483647]
-        configs.put("retries", "1");
+        configs.put("retries", 1);
+        //⽣产者⽣成数据的压缩格式。默认是none（没有压缩）。允许的值： none ， gzip ， snappy 和 lz4 。压缩是对整个消息批次来
+        //讲的。消息批的效率也影响压缩的⽐例。消息批越⼤，压缩效率越好。字符串类型的值。默认是none。
         configs.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "gzip");
 
         KafkaProducer<String, User> producer = new KafkaProducer<>(configs);
@@ -44,7 +46,7 @@ public class MyProducer {
         user.setUsername("张三");
 
         ProducerRecord<String, User> record = new ProducerRecord<>("tp_interceptor", 0, user.getUsername(), user);
-        
+
         producer.send(record, (metadata, exception) -> {
             if (exception == null) {
                 System.out.println("消息发送成功：" + metadata.topic() + "\t" + metadata.partition() + "\t" + metadata.offset());
