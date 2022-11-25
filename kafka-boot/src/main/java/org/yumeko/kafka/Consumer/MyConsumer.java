@@ -13,12 +13,12 @@ public class MyConsumer {
         Optional<ConsumerRecord<Integer, String>> optional =
                 Optional.ofNullable(record);
         if (optional.isPresent()) {
-            System.out.println(
+            System.out.println("消费信息:" +
                     record.topic() + "\t"
-                            + record.partition() + "\t"
-                            + record.offset() + "\t"
-                            + record.key() + "\t"
-                            + record.value());
+                    + record.partition() + "\t"
+                    + record.offset() + "\t"
+                    + record.key() + "\t"
+                    + record.value());
         }
     }
 }
