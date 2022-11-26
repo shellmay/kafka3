@@ -10,7 +10,7 @@ import org.yumeko.kafka.producer.CustomSerialization.UserSerializer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyProducer {
+public class MyProducerThree {
     public static void main(String[] args) {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.88.134:9092");
@@ -22,7 +22,7 @@ public class MyProducer {
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, UserSerializer.class);
         // 设置⾃定义分区器
-        // configs.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, MyPartitioner.class);
+        // configs.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, CustomPartitioner.class);
         configs.put("partitioner.class", "org.yumeko.kafka.producer.CustomPartitioner.CustomPartitioner");
         //该选项控制着已发送消息的持久性。
         //acks=0 ：⽣产者不等待broker的任何消息确认。只要将消息放到了socket的缓冲区，就认为消息已发送。不能保证服务器是否收

@@ -1,8 +1,20 @@
 package org.yumeko.kafka.producer.CustomSerialization;
 
 public class User {
+
     private Integer userId;
     private String username;
+
+    public User() {
+    }
+
+    public User(int userId, String username) {
+
+        this.userId = userId;
+        this.username = username;
+
+    }
+
 
     public Integer getUserId() {
         return userId;
