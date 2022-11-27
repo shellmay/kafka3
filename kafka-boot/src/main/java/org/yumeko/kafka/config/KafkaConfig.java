@@ -12,11 +12,13 @@ import java.util.Map;
 public class KafkaConfig {
     @Bean
     public NewTopic topic1() {
+
         return new NewTopic("ntp-01", 1, (short) 1);
     }
 
     @Bean
     public NewTopic topic2() {
+
         return new NewTopic("ntp-02", 3, (short) 1);
     }
 

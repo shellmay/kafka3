@@ -11,7 +11,7 @@ import java.util.Map;
 public class MyProducer3 {
     public static void main(String[] args) {
         Map<String, Object> configs = new HashMap<>();
-        configs.put("bootstrap.servers", "192.168.88.134:9092");
+        configs.put("bootstrap.servers", "192.168.1.102:9092");
         configs.put("key.serializer", IntegerSerializer.class);
         configs.put("value.serializer", StringSerializer.class);
         KafkaProducer<Integer, String> producer = new KafkaProducer<Integer, String>(configs);
