@@ -21,7 +21,7 @@ public class MyProducer1 {
         Map<String, Object> configs = new HashMap();
         // 设置连接Kafka的初始连接⽤到的服务器地址
         // 如果是集群，则可以通过此初始连接发现集群中的其他broker
-        configs.put("bootstrap.servers", "192.168.88.134:9092");
+        configs.put("bootstrap.servers", "192.168.1.102:9092");
         // 设置key的序列化器
         configs.put("key.serializer", IntegerSerializer.class);
         // 设置value的序列化

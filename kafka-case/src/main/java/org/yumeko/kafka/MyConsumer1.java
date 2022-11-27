@@ -14,7 +14,7 @@ public class MyConsumer1 {
         Map<String, Object> configs = new HashMap<>();
         // 指定bootstrap.servers属性作为初始化连接Kafka的服务器。
         // 如果是集群，则会基于此初始化连接发现集群中的其他服务器。
-        configs.put("bootstrap.servers", "192.168.88.134:9092");
+        configs.put("bootstrap.servers", "192.168.1.102:9092");
         // key的反序列化器
         configs.put("key.deserializer",
                 "org.apache.kafka.common.serialization.IntegerDeserializer");

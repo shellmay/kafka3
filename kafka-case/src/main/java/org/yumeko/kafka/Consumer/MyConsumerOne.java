@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 public class MyConsumerOne {
     public static void main(String[] args) {
         Map<String, Object> configs = new HashMap<>();
-        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.88.134:9092");
+        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.1.102:9092");
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, UserDeserializer.class);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, "consumer1");
